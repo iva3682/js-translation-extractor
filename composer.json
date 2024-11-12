@@ -2,6 +2,8 @@
     "name": "coffreo/js-translation-extractor",
     "description": "Extract translation from javascript source code",
     "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Cyril MERY",
