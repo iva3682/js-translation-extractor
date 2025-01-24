@@ -63,7 +63,7 @@ class JsTranslationExtractor implements JsTranslationExtractorInterface
     private function addTransChoiceMessages($fileContent, $collection)
     {
         // see https://regex101.com/r/FZufaJ/3
-        $pattern = '/transChoice\(\s*("(?:[^"\\\\]|\\\\.)*"|\'(?:[^\'\\\\]|\\\\.)*\')((?:,|\)))\s*((?:,|[A-Za-z0-9.,]*))((?:,|\)))\s*({.*?}((?:\))|,\s*("(?:[^"\\\\]|\\\\.)*"|\'(?:[^\'\\\\]|\\\\.)*\'))|\))?/ms';
+        $pattern = '/transChoice\(\s*("(?:[^"\\\\]|\\\\.)*"|\'(?:[^\'\\\\]|\\\\.)*\')((?:,|\)))\s*((?:,|[A-Za-z0-9.,]*))((?:,|\)))\s*({.*?}((?:\))|,\s*("(?:[^"\\\\]|\\\\.)*"|\'(?:[^\'\\\\]|\\\\.)*\'))|\s*\))?/ms';
         if (\preg_match_all($pattern, $fileContent, $matches, PREG_OFFSET_CAPTURE)) {
             foreach ($matches[1] as $i => $keyInfo) {
                 $line = $this->getLineNumber($fileContent, $matches[0][$i][1]);
